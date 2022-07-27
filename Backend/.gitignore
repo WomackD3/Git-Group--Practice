@@ -1,0 +1,16 @@
+# dotenv environment variables file
+.env
+.env.test
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# .DS_Store
+.DS_Store
