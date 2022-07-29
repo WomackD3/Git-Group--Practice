@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 //create schema
-const userSchema = new mongoose.Schema(
+const User = new mongoose.Schema(
   {
     firstName: {
       required: [true, "First name is required"],
@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema(
     profilePhoto: {
       type: String,
       default:
-        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        "default logo pic",
     },
     email: {
       type: String,
@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, "Hei buddy Password is required"],
+      required: [true, " Password is required"],
     },
     postCount: {
       type: Number,
@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["Admin", "Guest", "Blogger"],
+      enum: ["Admin", "user",],
     },
     isFollowing: {
       type: Boolean,
@@ -100,7 +100,7 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('userSchema', User)
+export default mongoose.model('users', User)
 
 
 
