@@ -1,12 +1,21 @@
 import express from "express";
 import dotenv from "dotenv"
 import dbConnect from "./config/db/dbConnect.js"
-// const dbConnect = require("./config/db/dbConnect");
+import cors from "cors"
+
 
 dotenv.config()
 
 //server
 const app = express()
+
+//cors
+app.use(cors());
+
+//middleware
+app.use(express.json());
+
+
 
 //dbConnect
 dbConnect();
