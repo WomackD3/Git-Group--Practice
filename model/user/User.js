@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 //create schema
-const User = new mongoose.Schema(
+const user Schema= new mongoose.Schema(
   {
     firstName: {
       required: [true, "First name is required"],
@@ -100,7 +100,7 @@ const User = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('users', User)
+export default mongoose.model('User', userSchema)
 
 
 
