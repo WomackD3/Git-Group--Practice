@@ -51,6 +51,20 @@ const userSchema = new mongoose.Schema(
 
      ```
 
+     ```
+     add at end of post schema
+
+     {
+    toJSON: {
+      virtuals: true,
+    },
+    toObject: {
+      virtuals: true,
+    },
+    timestamps: true,
+  }
+  ```
+
 
 
 
