@@ -1,4 +1,4 @@
-import User from "../model/User";
+import User from "../model/user.js";
 
 
 //get User gonna have to register & check if user exist 
@@ -34,7 +34,7 @@ export const createUser = async (req, res) => {
 }
 
 //delete user
-export const deleteHouse = async (req, res) => {
+export const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
     const deleted = await User.findByIdAndDelete(id);
@@ -66,6 +66,8 @@ export const updateUser = async (req, res) => {
     
   }
 }
+
+
 
 
 //login user
