@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 //create schema
-const user Schema= new mongoose.Schema(
+const userSchema= new mongoose.Schema(
   {
     firstName: {
       required: [true, "First name is required"],
