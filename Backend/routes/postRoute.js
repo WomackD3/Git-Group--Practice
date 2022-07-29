@@ -1,6 +1,12 @@
 import { Router } from "express";
-import * as controllers from "../controllers/postCtrl.js";
+import * as controllers from "../controllers/houses.js";
 
 const router = Router();
-router.get("/posts", controllers.getPosts);
-router.get("posts/:id", controllers.getPost)
+
+router.get("/post", controllers.getPosts);
+router.get("/post/:id", controllers.getPost);
+router.post("/post", controllers.createPost);
+router.put("/post/:id", controllers.updatePost);
+router.delete("/post/:id", controllers.deletePost);
+
+export default router;

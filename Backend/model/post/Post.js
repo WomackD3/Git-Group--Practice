@@ -14,7 +14,7 @@ const Post = new mongoose.Schema(
         ref: "User",
         required: [true, "user author required here"],
       },
-      description: {
+      comment: {
         type: String,
         required: [true, "Post description is required"],
       },
