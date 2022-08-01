@@ -3,12 +3,8 @@ import mongoose from "mongoose";
 //create schema
 const userSchema= new mongoose.Schema(
   {
-    firstName: {
-      required: [true, "First name is required"],
-      type: String,
-    },
-    lastName: {
-      required: [true, "Last name is required"],
+    name: {
+  
       type: String,
     },
     profilePhoto: {
@@ -27,10 +23,7 @@ const userSchema= new mongoose.Schema(
       type: String,
       required: [true, " Password is required"],
     },
-    postCount: {
-      type: Number,
-      default: 0,
-    },
+    
     isBlocked: {
       type: Boolean,
       default: false,

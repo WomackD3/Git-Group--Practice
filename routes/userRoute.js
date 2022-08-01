@@ -1,14 +1,18 @@
 import { Router } from "express";
-import * as controllers from '../controllers/userCtrl.js'
+import {userCtrl} from '../controllers/userCtrl.js'
 
 
 
 const router = Router();
 
-router.get("/users", controllers.getUser);
-router.get("/users/:id", controllers.getUser);
-router.post("/users", controllers.createUser);
-router.put("/users/:id", controllers.updateUser);
-router.delete("/users/:id", controllers.deleteUser);
+router.post("/register", userCtrl.create);
+router.post("/login", userCtrl.login);
+router.delete("/users/:id", userCtrl.delete);
+// router.get("/users/", userCtrl.get);
+// router.get("/profile/:id", userCtrl.Profile);
+// router.put("/", userCtrl.fetch);
+// router.put("/users/:id", userCtrl.update);
+// router.put("/unfollow", userCtrl.unfollow);
+// router.put("/follow", userCtrl.follow);
 
 export default router;

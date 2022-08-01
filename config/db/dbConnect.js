@@ -1,22 +1,19 @@
 import mongoose from "mongoose";
 
-const dbConnect = async () => { 
-  try {
-    await mongoose.connect(process.env.MONGODB_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      // useCreateIndex: true,
-      // useFindAndModify: false,
-      
-    })
-    console.log('mongodb is connected');
-    
-  } catch (error) {
-    console.log(`error ${error.message}`);
-    
-  }
-}
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/cyber-api"
 
-// module.exports = dbConnect;
+mongoose.set("returnOriginal", false);
 
-export default dbConnect
+mongoose.connect(MONGODB_URL).catch((err) => {
+  console.log(err);
+})
+
+mongoose.connection.on("disconnected", () => {
+  console.log('MongoDB disconnected');
+})
+
+mongoose.connection.on("error", (err) => {
+  console.log(`MongoDB connection error: ${err}`);
+});
+
+export default mongoose.connection;

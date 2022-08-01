@@ -1,5 +1,4 @@
 import User from "../model/user.js";
-import expressAsyncHandler from "express-async-handler";
 import Jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
@@ -16,6 +15,7 @@ let generateToken = async (id) => {
 //register user 
 export const userCtrl = {
   async create(req, res) {
+    console.log(req.body);
     const { email, password } = req.body;
     //Check if user Exist
     const userExists = await User.findOne({ email });
@@ -28,13 +28,12 @@ export const userCtrl = {
     try {
       const user = await User.create({
         ...req.body,
-        password: hashedPassword,
-  
+        password: hashedPassword
       })
-      res.status(201).res.json({
+
+      res.status(201).json({
         _id: user.id,
-        firstName: user.firstName,
-        lastName: user.lastName,
+        name: user.name,
         email: user.email,
         token: await generateToken(user.id),
   
@@ -45,6 +44,7 @@ export const userCtrl = {
       res.status(500).json({ error: error.message });
     }
   },
+  //login
   async login(req, res) {
     const { email, password } = req.body;
     try {
@@ -70,6 +70,7 @@ export const userCtrl = {
       
     }
   },
+  //profile
   async profile(req, res) {
     const requestHeaders = req.headers.authorization;
     if (requestHeaders && requestHeaders.startWith("Bearer")) {
@@ -89,7 +90,7 @@ export const userCtrl = {
     }
   },
   //following
-  async following(req, res) {
+  async follow(req, res) {
     //1.Find the user you want to follow and update it's followers field
     //2. Update the login user following field
     const { followId } = req.body;

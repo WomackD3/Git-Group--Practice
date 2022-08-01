@@ -7,21 +7,20 @@ dotenv.config()
 
 //server
 const app = express()
+const PORT = process.env.PORT || 3000;
+
+
+//middleware
+app.use(express.json());
+//cors
+app.use(cors());
 
 //Users route
 app.use("/api", routes);
 
-//cors
-app.use(cors());
-
-//middleware
-app.use(express.json());
-
-
-
 //dbConnect
-dbConnect();
-console.log(process.env);
-const PORT = process.env.PORT || 3000;
-
-app.listen( PORT,console.log(`this bitch is up on ${PORT} YA HEARD!!`) )
+dbConnect.on("connected", () => {
+  app.listen(PORT, () => {
+    console.log(`this bitch is up on ${PORT} YA HEARD!!`)
+  })
+});
