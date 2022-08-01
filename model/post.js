@@ -57,14 +57,12 @@ const postSchema = new mongoose.Schema(
         virtuals: true,
       },
       timestamps: true,
-    }
+  })
 
-//create comments from post
-postSchema.virtual("comments", {
-  ref: "Comment",
-  foreignField: "post",
-  localField: "_id",
-});
-);
-
+  postSchema.virtual("comments", {
+    ref: "Comment",
+    foreignField: "post",
+    localField: "_id",
+  });
+    
 export default mongoose.model('Post', postSchema)
