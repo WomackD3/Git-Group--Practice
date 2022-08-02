@@ -4,7 +4,6 @@ import mongoose from "mongoose";
 const userSchema= new mongoose.Schema(
   {
     name: {
-  
       type: String,
     },
     profilePhoto: {
@@ -47,7 +46,6 @@ const userSchema= new mongoose.Schema(
     isAccountVerified: { type: Boolean, default: false },
     accountVerificationToken: String,
     accountVerificationTokenExpires: Date,
-
     viewedBy: {
       type: [
         {
@@ -56,7 +54,6 @@ const userSchema= new mongoose.Schema(
         },
       ],
     },
-
     followers: {
       type: [
         {
