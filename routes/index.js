@@ -1,5 +1,8 @@
 import { Router } from "express";
 import userRoutes from "./userRoute.js"
+import commentRoutes from "./commentRoute.js "
+
+
 
 const router = Router();
 
@@ -8,4 +11,5 @@ router.get("/", (req, res) => {
 });
 
 router.use("/", userRoutes)
+router.use("/", commentRoutes)
 export default router;
