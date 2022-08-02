@@ -1,5 +1,4 @@
 import Post from "../model/post.js";
-import User from "../model/user.js";
 
 //create post
 
@@ -7,9 +6,9 @@ export const postCtrl = {
   //create post
   async create(req, res) {
     try {
-      // let post = new Post(req.body);
-      // await post.save();
-      let post = await Post.create(req.body);
+      let post = new Post(req.body);
+      await post.save();
+      // let post = await Post.create(req.body);
       res.status(200).json(post);
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -50,7 +49,7 @@ export const postCtrl = {
     }
   },
   //update post
-  async post(req, res) {
+  async update(req, res) {
     const { id } = req.params;
     try {
       const post = await Post.findByIdAndUpdate(id, req.body);
@@ -64,7 +63,7 @@ export const postCtrl = {
     const { id } = req.params;
     try {
       const post = await Post.findOneAndDelete(id);
-      if (this.delete) return response.status(200).json(post);
+      res.status(200).json(post);
     } catch (error) {
       console.log(error);
       res.status(500).json({ error: error.message });

@@ -1,55 +1,59 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 const postSchema = new mongoose.Schema(
-{
+  {
     title: {
-        type: String, 
-        required: [true, "Post title is required"],
-        
-      },
-      description: {
-        type: String,
-        required: [true, "Post description is required"],
-      },
-      category: {
-        type: String,
-        required: [true, "Post category is required"],
-      },
-      isLiked: {
-        type: Boolean,
-        default: false,
-      },
-      isDisLiked: {
-        type: Boolean,
-        default: false,
-      },
-      user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-        required: [true, "user author required here"],
-      },
-      image: {
-        type: String,
-        default: "post images goes here",
-      },
+      type: String,
+      required: [true, "Post title is required"],
     },
-    {
-      toJSON: {
-        virtuals: true,
-      },
-      toObject: {
-        virtuals: true,
-      },
-      timestamps: true,
-  })
+    description: {
+      type: String,
+      required: [true, "Post description is required"],
+    },
+    category: {
+      type: String,
+      required: [true, "Post category is required"],
+    },
+    isLiked: {
+      type: Boolean,
+      default: false,
+    },
+    isDisLiked: {
+      type: Boolean,
+      default: false,
+    },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: [true, "user author required here"],
+    },
+    image: {
+      type: String,
+      default: "post images goes here",
+    },
+    comments: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Comment",
+    }]
+  },
+  {
+    timestamps: true,
+  }
+);
+  
+  // toJSON: {
+  //   virtuals: true,
+  // },
+  // toObject: {
+  //   virtuals: true,
+  // },
+// postSchema.virtual("comments", {
+//   ref: "Comment",
+//   foreignField: "post",
+//   localField: "_id",
+// });
 
-  postSchema.virtual("comments", {
-    ref: "Comment",
-    foreignField: "post",
-    localField: "_id",
-  });
-    
-export default mongoose.model('Post', postSchema)
+export default mongoose.model("Post", postSchema);
 
 // likes: [
 //   {

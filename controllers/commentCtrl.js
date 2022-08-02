@@ -1,4 +1,4 @@
-import Comments from '../comments/comments.js';  
+import Comments from '../model/comment.js';  
 import post from '../model/post.js';
 // import User from "../model/user.js";
 
