@@ -3,10 +3,10 @@ import { postCtrl } from "../controllers/postCtrl";
 
 const router = Router();
 
-router.delete("/post/:id", postCtrl.delete);
-router.put("/", postCtrl.fetchAll);
-router.put("/:id", postCtrl.fetch);
-router.put("/post/:id", postCtrl.update);
-router.post("/post", posttCtrl.create);
+router.get("/posts", postCtrl.fetchAll);
+router.get("/posts/:id", postCtrl.fetch);
+router.post("/posts", posttCtrl.create);
+router.put("/posts/:id", postCtrl.update);
+router.delete("/posts/:id", postCtrl.delete);
 
 export default router;

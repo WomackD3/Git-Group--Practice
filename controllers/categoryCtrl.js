@@ -30,5 +30,5 @@ export const categoryCtrl = {
   
   },
   // fetch
-  async fetch(req,)
+  // async fetch(req,)
 }

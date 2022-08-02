@@ -1,6 +1,5 @@
 import mongoose from "mongoose"
 
-
 const postSchema = new mongoose.Schema(
 {
     title: {
@@ -24,29 +23,14 @@ const postSchema = new mongoose.Schema(
         type: Boolean,
         default: false,
       },
-      likes: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-        },
-      ],
-      disLikes: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-        },
-      ],
-  
       user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
         required: [true, "user author required here"],
       },
-      
       image: {
         type: String,
-        default:
-          "post images goes here",
+        default: "post images goes here",
       },
     },
     {
@@ -66,3 +50,16 @@ const postSchema = new mongoose.Schema(
   });
     
 export default mongoose.model('Post', postSchema)
+
+// likes: [
+//   {
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: "User",
+//   },
+// ],
+// disLikes: [
+//   {
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: "User",
+//   },
+// ],

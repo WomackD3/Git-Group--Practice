@@ -12,6 +12,6 @@ router.get("/", (req, res) => {
 });
 
 router.use("/", userRoutes)
-router.use("/", commentRoutes)
 router.use("/", postRoutes)
+router.use("/", commentRoutes)
 export default router;
