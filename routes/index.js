@@ -1,7 +1,7 @@
 import { Router } from "express";
-import userRoutes from "./userRoute.js"
+import userRoutes from "./userRoutes.js"
 import commentRoutes from "./commentRoutes.js"
-import postroutes from "./postroutes.js"
+import postroutes from "./postRoutes.js"
 
 
 
