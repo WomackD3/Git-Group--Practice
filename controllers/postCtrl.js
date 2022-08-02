@@ -96,7 +96,6 @@ try {
       const post = await Post.findOneAndDelete(id);
       if (this.delete)
         return response.status(200).json(post);
-      r
     } catch (error) {
       console.log(error);
       res.status(500).json({ error: error.message })
