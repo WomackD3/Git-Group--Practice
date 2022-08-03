@@ -15,3 +15,5 @@ router.use("/", userRoutes)
 router.use("/", postRoutes)
 router.use("/", commentRoutes)
 export default router;
+
+//post routes 
