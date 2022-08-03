@@ -3,11 +3,14 @@ import dotenv from "dotenv"
 import dbConnect from "./config/db/dbConnect.js"
 import cors from "cors"
 import routes from "./routes/index.js"
+import logger from "morgan";
 dotenv.config()
 
 //server
 const app = express()
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
+
+app.use(logger("dev"));
 
 
 //middleware

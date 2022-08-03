@@ -46,6 +46,7 @@ export const userCtrl = {
   },
   //login
   async login(req, res) {
+    console.log(req.body)
     const { email, password } = req.body;
     try {
       const user = await User.findOne({ email: email });
@@ -73,11 +74,11 @@ export const userCtrl = {
   //profile
   async profile(req, res) {
     const requestHeaders = req.headers.authorization;
-    if (requestHeaders && requestHeaders.startWith("Bearer")) {
+    if (requestHeaders && requestHeaders.startsWith("Bearer")) {
       try {
         let token = requestHeaders.split(" ")[1];
         const decoded = Jwt.verify(token, secret);
-        let userProfile = await User.findOne(decoded.id).select("-password"
+        let userProfile = await User.findById(decoded.id).select("-password"
         );
         res.json(userProfile);
 
