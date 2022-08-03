@@ -1,8 +1,8 @@
 import { Router } from "express";
 import userRoutes from "./userRoutes.js"
 import commentRoutes from "./commentRoutes.js"
-import postRoutes from "./postRoutes.js"
-import post from "../model/post.js";
+// import postRoutes from "./postRoutes.js"
+
 
 
 
@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
 });
 
 router.use("/", userRoutes)
-router.use("/", postRoutes)
+// router.use("/", postRoutes)
 router.use("/", commentRoutes)
 export default router;
 
