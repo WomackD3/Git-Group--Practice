@@ -10,7 +10,7 @@ let mongooseConfig = {
 let connectionString = "mongodb://127.0.0.1:27017/cyber-api"
 let db = mongoose.connection
 
-mongoose.connect(connectionString, mongooseConfig);
+// mongoose.connect(connectionString, mongooseConfig);
   
 mongoose.set("returnOriginal", false);
 
