@@ -1,5 +1,5 @@
-// import User from "../model/user.js";
 import User from "../model/user.js";
+// import User from "../model/user.js";
 import Jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
